@@ -12,6 +12,19 @@ async function getData(id) {
   return res.json();
 }
 
+
+
+export async function generateMetadata({ params }) {
+  const race = await getData(params.id);
+  return {
+    title: race.title,
+    description: race.desc,
+  };
+}
+
+
+
+
 const ClasicsIdPage = async ({ params })=> {
   const data =await getData(params.id);
 
@@ -23,14 +36,14 @@ const ClasicsIdPage = async ({ params })=> {
         </div>
 
         <div className="flex-1 lg:max-w-[740px]">
-          <h1 className="text-green-500 text-2xl tracking-wide uppercase font-bold mb-4 lg:text-center">
+          <h1 className="text-green-500 text-2xl tracking-wide uppercase font-bold mb-4 lg:text-center md:text-xl">
             {" "}
             {data.title}{" "}
           </h1>
           <p className=" tracking-wide  "> {data.content} </p>
         </div>
       </div>
-      <p className=" tracking-wide max-w-[1024px]   lg:max-w-[740px] lg:mx-auto lg:my-0">
+      <p className=" tracking-wide max-w-[1024px]   lg:max-w-[740px] lg:mx-auto lg:my-0 md:text-sm">
         {data.content}{" "}
       </p>
     </div>

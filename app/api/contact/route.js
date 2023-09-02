@@ -10,16 +10,7 @@ export const POST = async (request) => {
     await connectToDb();
     await Contact.create({ name, email, message });
   } catch (error) {
-    if (error instanceof mongoose.Error.ValidationError) {
-      let errorList = [];
-      for (let e in error.errors) {
-        errorList.push(error.errors[e].message);
-      }
-   
-      return NextResponse.json({ msg: errorList });
-    } else {
-      return NextResponse.json({ msg: ["Unable to send message."] });
-    }
+      return new NextResponse("Database Error.....", { status: 500 });
   }
 
   return NextResponse.json({ msg: ["hello fom contact form"] });

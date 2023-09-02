@@ -2,6 +2,16 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+
+export const metadata = {
+  title: "Classics",
+  description: "Cycling Road races of Season",
+  keywords: "web design, javascript,react, nextjs,tailwind,css",
+};
+
+
+
+
 const getData = async () => {
   const res = await fetch("http://localhost:3000/api/races", {
     cache: "no-store",

@@ -10,21 +10,27 @@ function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    try {
+      const res = await fetch("api/contact", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      });
+
  
+    } catch (error) {
+      console.log(error);
+    }
 
-    const res = await fetch("api/contact", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-      }),
-    });
 
-    const { msg } = await res.json();
-    setError(msg);
+
   };
+
+   
 
   return (
     <>
@@ -58,7 +64,7 @@ function ContactForm() {
             className="w-[400px] h-12 text-orange-950 text-lg rounded border-none outline-0 bg-stone-300"
           />
         </div>
-        <div>
+        <div className="lg:text-center">
           <label className="my-1 " htmlFor="message">
             Your Message
           </label>
@@ -77,7 +83,6 @@ function ContactForm() {
         >
           Send
         </button>
-
       </form>
     </>
   );
