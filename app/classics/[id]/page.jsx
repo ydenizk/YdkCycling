@@ -12,8 +12,6 @@ async function getData(id) {
   return res.json();
 }
 
-
-
 export async function generateMetadata({ params }) {
   const race = await getData(params.id);
   return {
@@ -22,11 +20,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-
-
-
-const ClasicsIdPage = async ({ params })=> {
-  const data =await getData(params.id);
+const ClasicsIdPage = async ({ params }) => {
+  const data = await getData(params.id);
 
   return (
     <div className="w-full max-w-[1024px]  mx-auto my-0 mt-16 lg:mx-12   ">
@@ -48,6 +43,6 @@ const ClasicsIdPage = async ({ params })=> {
       </p>
     </div>
   );
-}
+};
 
 export default ClasicsIdPage;

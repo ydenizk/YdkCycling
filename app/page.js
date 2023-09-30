@@ -28,7 +28,7 @@ export default function Home() {
             height={420}
             className="rounded-2xl"
           />
-          <Link href="/races" className="md:w-full ">
+          <Link href="/tours" className="md:w-full ">
             <Button />
           </Link>
         </div>
