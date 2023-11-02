@@ -31,7 +31,7 @@
   },
   {
     id: 2,
-    mainTitle: " giro d&quotitalia ",
+    mainTitle: " giro D Italia ",
     descript:
       "lorem sit amet consectetur adipisicing elit. Quis laboriosam. Lorem ipsum dolor, sit amet consectetur",
     img: "/pic-2.jpeg",
