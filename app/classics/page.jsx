@@ -18,11 +18,11 @@ const getData = async () => {
       cache: "no-store",
     });
 
-    if (!res.ok) {
-      throw new Error("Failed!");
+    if (res.ok) {
+      const data = await res.json();
+      return data
     }
   
-    return res.json();
   
 };
 
