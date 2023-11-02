@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [success, setSucess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,17 +21,25 @@ function ContactForm() {
           message,
         }),
       });
-
- 
+      if (res.ok) {
+        setName("");
+        setEmail("");
+        setMessage("");
+        setSucess(true);
+      }
     } catch (error) {
       console.log(error);
     }
-
-
-
   };
 
-   
+  useEffect(() => {
+    if (success) {
+      setTimeout(() => {
+        setSucess(false);
+      }, 3000);
+    }
+    return;
+  }, [success]);
 
   return (
     <>
@@ -48,6 +57,7 @@ function ContactForm() {
             type="text"
             id="name"
             required
+            value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -61,6 +71,7 @@ function ContactForm() {
             onChange={(e) => setEmail(e.target.value)}
             id="email"
             type="text"
+            value={email}
             className="w-[400px] h-12 text-orange-950 text-lg rounded border-none outline-0 bg-stone-300"
           />
         </div>
@@ -74,15 +85,22 @@ function ContactForm() {
             id="message"
             cols="39"
             rows="8"
+            value={message}
             className="rounded text-orange-950 bg-stone-300 "
           ></textarea>
         </div>
+
         <button
           type="submit"
           className="w-full max-w-[400px] rounded bg-green-700 hover:bg-green-800 transition mb-4 py-2 tracking-wide text-xl cursor-pointer  text-stone-200"
         >
           Send
         </button>
+        {success && (
+          <div className="text-red-700 -mt-4 w-full text-left">
+            Your Message Sent! Thank you.
+          </div>
+        )}
       </form>
     </>
   );

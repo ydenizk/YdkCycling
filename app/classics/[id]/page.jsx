@@ -3,7 +3,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 
 async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/races/${id}`);
+  const res = await fetch(`${process.env.FETCH_URL}/api/races/${id}`);
 
   if (!res.ok) {
     return notFound();
@@ -27,7 +27,7 @@ const ClasicsIdPage = async ({ params }) => {
     <div className="w-full max-w-[1024px]  mx-auto my-0 mt-16 lg:mx-12   ">
       <div className="flex  gap-10 justify-center align-middle lg:flex-col mb-6 lg:items-center">
         <div className=" flex-1">
-          <Image src={data.img} width={680} height={600} className="rounded" />
+          <Image src={data.img} width={680} height={600} className="rounded" alt="pic" />
         </div>
 
         <div className="flex-1 lg:max-w-[740px]">

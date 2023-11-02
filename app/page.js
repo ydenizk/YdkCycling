@@ -26,6 +26,7 @@ export default function Home() {
             src={Banner}
             width={540}
             height={420}
+            alt="banner"
             className="rounded-2xl"
           />
           <Link href="/tours" className="md:w-full ">

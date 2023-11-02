@@ -41,6 +41,7 @@ export default function Tours() {
                 src={img}
                 width={929}
                 height={540}
+                alt="pic"
                 className="max-w-5xl max-h-[600px]  z-0 top-0 left-0  rounded-full rounded-t saturate-50 
             lg:rounded-full lg:w-[640px] sm:w-[480px]"
               />

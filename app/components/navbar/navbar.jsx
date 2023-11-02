@@ -14,12 +14,12 @@ const menu = [
     url: "/tours",
   },
   {
-    id: 1,
+    id: 3,
     title: "Classics",
     url: "/classics",
   },
   {
-    id: 1,
+    id: 4,
     title: "Contact",
     url: "/contact",
   },
