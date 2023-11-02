@@ -13,15 +13,17 @@ export const metadata = {
 
 
 const getData = async () => {
-  const res = await fetch(`${process.env.FETCH_URL}/api/races`, {
-    cache: "no-store",
-  });
+ 
+    const res = await fetch(`${process.env.FETCH_URL}/api/races`,{
+      cache: "no-store",
+    });
 
-  if (!res.ok) {
-    throw new Error("data fetching failed...");
-  }
-
-  return res.json();
+    if (!res.ok) {
+      throw new Error("Failed!");
+    }
+  
+    return res.json();
+  
 };
 
 const Classics = async () => {

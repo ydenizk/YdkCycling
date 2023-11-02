@@ -2,15 +2,24 @@ import Image from "next/image";
 import React from "react";
 import { notFound } from "next/navigation";
 
-async function getData(id) {
-  const res = await fetch(`${process.env.FETCH_URL}/api/races/${id}`);
+
+const getData = async (id) => {
+  const res = await fetch(
+    `${process.env.FETCH_URL}/api/races/${id}`,
+    { cache: "no-store" }
+  );
 
   if (!res.ok) {
-    return notFound();
+    throw new Error("Failed!");
   }
 
   return res.json();
-}
+  
+};
+
+
+
+
 
 export async function generateMetadata({ params }) {
   const race = await getData(params.id);
