@@ -11,8 +11,8 @@ export default function Footer() {
       <div className="w-full max-w-[1024px]  my-8 p-4 grid grid-cols-2  gap-16 justify-center ">
         <div className="text-slate-300">
           <p className="whitespace-nowrap text-xs">
-            We"d love to hear from you, just email us at{" "}
-            <span className="text-base text-green-700">ydkurt@yahoo.com</span>{" "}
+            We&quotd love to hear from you, just email us at
+            <span className="text-base text-green-700">ydkurt@yahoo.com</span>
           </p>
           <h1 className="text-xs">&copy;All rights reserved by YdenizK.</h1>
         </div>
