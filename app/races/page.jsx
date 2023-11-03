@@ -24,7 +24,7 @@ const RacesPage = async () => {
 
   return (
     <div className="flex flex-col justify-center pt-20   items-center content-center gap-6 mx-auto my-0 w-full max-w-screen-lg ">
-      {data.map((dt) => {
+      {data?.map((dt) => {
         const { _id, title, desc, img } = dt;
 
         return (

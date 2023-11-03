@@ -21,13 +21,14 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const RacesIdPage = async ({ params }) => {
+export default async function({ params }) {
   const data = await getData(params.id);
 
   return (
     <div className="w-full max-w-[1024px]  mx-auto my-0 mt-16 lg:mx-12   ">
       <div className="flex  gap-10 justify-center align-middle lg:flex-col mb-6 lg:items-center">
         <div className=" flex-1">
+          
           <Image
             src={data.img}
             width={680}
@@ -52,4 +53,4 @@ const RacesIdPage = async ({ params }) => {
   );
 };
 
-export default RacesIdPage;
+
