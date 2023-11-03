@@ -2,25 +2,16 @@ import Image from "next/image";
 import React from "react";
 import { notFound } from "next/navigation";
 
-
 const getData = async (id) => {
-  const res = await fetch(
-    `${process.env.FETCH_URL}/api/races/${id}`,
-    { cache: "no-store" }
-  );
+  const res = await fetch(`${process.env.FETCH_URL}/api/races/${id}`, {
+    cache: "no-store",
+  });
 
   if (res.ok) {
     const data = await res.json();
-    return data
+    return data;
   }
-
-
-  
 };
-
-
-
-
 
 export async function generateMetadata({ params }) {
   const race = await getData(params.id);
@@ -30,14 +21,20 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const ClasicsIdPage = async ({ params }) => {
+const RacesIdPage = async ({ params }) => {
   const data = await getData(params.id);
 
   return (
     <div className="w-full max-w-[1024px]  mx-auto my-0 mt-16 lg:mx-12   ">
       <div className="flex  gap-10 justify-center align-middle lg:flex-col mb-6 lg:items-center">
         <div className=" flex-1">
-          <Image src={data.img} width={680} height={600} className="rounded" alt="pic" />
+          <Image
+            src={data.img}
+            width={680}
+            height={600}
+            className="rounded"
+            alt="pic"
+          />
         </div>
 
         <div className="flex-1 lg:max-w-[740px]">
@@ -55,4 +52,4 @@ const ClasicsIdPage = async ({ params }) => {
   );
 };
 
-export default ClasicsIdPage;
+export default RacesIdPage;

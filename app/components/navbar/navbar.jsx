@@ -15,8 +15,8 @@ const menu = [
   },
   {
     id: 3,
-    title: "Classics",
-    url: "/classics",
+    title: "Races",
+    url: "/races",
   },
   {
     id: 4,
